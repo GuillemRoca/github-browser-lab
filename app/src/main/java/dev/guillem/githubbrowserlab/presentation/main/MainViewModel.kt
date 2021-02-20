@@ -1,4 +1,4 @@
-package dev.guillem.githubbrowserlab.ui.main
+package dev.guillem.githubbrowserlab.presentation.main
 
 import androidx.lifecycle.ViewModel
 
