@@ -1,8 +1,8 @@
-package dev.guillem.githubbrowserlab
+package dev.guillem.githubbrowserlab.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import dev.guillem.githubbrowserlab.ui.main.MainFragment
+import dev.guillem.githubbrowserlab.R
 
 class MainActivity : AppCompatActivity() {
 
