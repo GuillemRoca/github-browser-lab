@@ -1,6 +1,6 @@
 package dev.guillem.githubbrowserlab.data.mapper
 
-import dev.guillem.githubbrowserlab.data.entity.RepositoryEntity
+import dev.guillem.githubbrowserlab.data.model.RepositoryEntity
 import dev.guillem.githubbrowserlab.domain.entity.Repository
 import javax.inject.Inject
 

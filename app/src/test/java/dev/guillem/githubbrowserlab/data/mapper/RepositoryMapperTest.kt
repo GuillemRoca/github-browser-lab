@@ -2,7 +2,7 @@ package dev.guillem.githubbrowserlab.data.mapper
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import dev.guillem.githubbrowserlab.data.entity.RepositoryEntity
+import dev.guillem.githubbrowserlab.data.model.RepositoryEntity
 import dev.guillem.githubbrowserlab.data.factory.OwnerFactory
 import dev.guillem.githubbrowserlab.data.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.domain.entity.Repository

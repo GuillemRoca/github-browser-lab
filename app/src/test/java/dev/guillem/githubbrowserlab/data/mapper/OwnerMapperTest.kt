@@ -1,6 +1,6 @@
 package dev.guillem.githubbrowserlab.data.mapper
 
-import dev.guillem.githubbrowserlab.data.entity.OwnerEntity
+import dev.guillem.githubbrowserlab.data.model.OwnerEntity
 import dev.guillem.githubbrowserlab.data.factory.OwnerFactory
 import dev.guillem.githubbrowserlab.domain.entity.Owner
 import org.junit.Before

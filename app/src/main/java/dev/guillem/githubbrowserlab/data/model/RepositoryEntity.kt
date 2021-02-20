@@ -1,4 +1,4 @@
-package dev.guillem.githubbrowserlab.data.entity
+package dev.guillem.githubbrowserlab.data.model
 
 import com.google.gson.annotations.SerializedName
 

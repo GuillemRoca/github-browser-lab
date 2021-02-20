@@ -1,6 +1,6 @@
 package dev.guillem.githubbrowserlab.data.factory
 
-import dev.guillem.githubbrowserlab.data.entity.OwnerEntity
+import dev.guillem.githubbrowserlab.data.model.OwnerEntity
 import dev.guillem.githubbrowserlab.data.factory.DataFactory.randomInt
 import dev.guillem.githubbrowserlab.data.factory.DataFactory.randomUuid
 import dev.guillem.githubbrowserlab.domain.entity.Owner
