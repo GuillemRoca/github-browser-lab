@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.databinding.MainFragmentBinding
 import dev.guillem.githubbrowserlab.presentation.tools.dialog.AlertDialogFactory
+import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColor
 import dev.guillem.githubbrowserlab.presentation.tools.imageloader.ImageLoader
 import javax.inject.Inject
 
@@ -69,10 +69,7 @@ class MainFragment : Fragment() {
 
     private fun configureSwipeToRefresh() {
         binding.viewSwipeToRefresh.apply {
-            setColorSchemeColors(
-                ContextCompat.getColor(context, R.color.purple_200),
-                ContextCompat.getColor(context, R.color.teal_200)
-            )
+            setColorSchemeColors(getColor(R.color.purple_200), getColor(R.color.teal_200))
             setOnRefreshListener { viewModel.onViewReady() }
         }
     }
