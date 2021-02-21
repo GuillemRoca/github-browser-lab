@@ -7,6 +7,6 @@ data class RepositoryView(
     val name: String,
     val owner: OwnerView,
     val htmlUrl: String,
-    val description: String,
+    val description: String?,
     @ColorRes val backgroundColor: Int,
 )

@@ -7,6 +7,6 @@ data class RepositoryEntity(
     @SerializedName("name") val name: String,
     @SerializedName("owner") val owner: OwnerEntity,
     @SerializedName("html_url") val htmlUrl: String,
-    @SerializedName("description") val description: String,
+    @SerializedName("description") val description: String?,
     @SerializedName("fork") val fork: Boolean,
 )
