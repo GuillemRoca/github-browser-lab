@@ -3,8 +3,8 @@ package dev.guillem.githubbrowserlab.data.mapper
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import dev.guillem.githubbrowserlab.data.model.RepositoryEntity
-import dev.guillem.githubbrowserlab.data.factory.OwnerFactory
-import dev.guillem.githubbrowserlab.data.factory.RepositoryFactory
+import dev.guillem.githubbrowserlab.factory.OwnerFactory
+import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.domain.entity.Repository
 import org.junit.Before
 import org.junit.Test
@@ -24,33 +24,24 @@ class RepositoryMapperTest {
     }
 
     @Test
-    fun `Should map from entity data`() {
+    fun `Should map from entity`() {
+        val expectedRepository = RepositoryFactory.makeRepository()
         val repositoryEntity = RepositoryFactory.makeRepositoryEntity()
-        whenever(ownerMapperMock.mapFromEntity(repositoryEntity.owner)).thenReturn(OwnerFactory.makeOwner())
+        whenever(ownerMapperMock.mapFromEntity(repositoryEntity.owner)).thenReturn(expectedRepository.owner)
 
         val repository = repositoryMapper.mapFromEntity(repositoryEntity)
 
-        assertRepositoryDataEquality(repositoryEntity, repository)
+        assertEquals(repository, expectedRepository)
     }
 
     @Test
-    fun `Should map to entity data`() {
+    fun `Should map to entity`() {
+        val expectedRepositoryEntity = RepositoryFactory.makeRepositoryEntity()
         val repository = RepositoryFactory.makeRepository()
-        whenever(ownerMapperMock.mapToEntity(repository.owner)).thenReturn(OwnerFactory.makeOwnerEntity())
+        whenever(ownerMapperMock.mapToEntity(repository.owner)).thenReturn(expectedRepositoryEntity.owner)
 
         val repositoryEntity = repositoryMapper.mapToEntity(repository)
 
-        assertRepositoryDataEquality(repositoryEntity, repository)
-    }
-
-    private fun assertRepositoryDataEquality(
-        repositoryEntity: RepositoryEntity,
-        repository: Repository
-    ) {
-        assertEquals(repositoryEntity.id, repository.id)
-        assertEquals(repositoryEntity.name, repository.name)
-        assertEquals(repositoryEntity.htmlUrl, repository.htmlUrl)
-        assertEquals(repositoryEntity.description, repository.description)
-        assertEquals(repositoryEntity.fork, repository.fork)
+        assertEquals(repositoryEntity, expectedRepositoryEntity)
     }
 }
