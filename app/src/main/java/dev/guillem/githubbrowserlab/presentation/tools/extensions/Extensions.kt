@@ -1,8 +1,12 @@
 package dev.guillem.githubbrowserlab.presentation.tools.extensions
 
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import android.content.Context
+import android.graphics.Color
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
+import com.google.android.material.color.MaterialColors
 
-fun Fragment.getColor(@ColorRes colorResource: Int) =
-    ContextCompat.getColor(requireContext(), colorResource)
+@ColorInt
+fun Context.getColorFromAttr(@AttrRes attrColor: Int): Int {
+    return MaterialColors.getColor(this, attrColor, Color.BLACK)
+}
