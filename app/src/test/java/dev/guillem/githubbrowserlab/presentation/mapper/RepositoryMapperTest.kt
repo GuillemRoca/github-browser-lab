@@ -30,10 +30,10 @@ class RepositoryMapperTest {
     }
 
     @Test
-    fun `Should background color be teal when when map to view with repository forked`() {
+    fun `Should background color be green when when map to view with repository forked`() {
         val expectedRepositoryView = RepositoryFactory
             .makeRepositoryView()
-            .copy(backgroundColor = R.color.teal_200)
+            .copy(backgroundColor = R.color.green_200)
         val repository = RepositoryFactory
             .makeRepository()
             .copy(fork = true)
