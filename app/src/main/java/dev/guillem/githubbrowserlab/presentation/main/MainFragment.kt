@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.databinding.MainFragmentBinding
 import dev.guillem.githubbrowserlab.presentation.tools.dialog.AlertDialogFactory
-import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColor
+import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
 import dev.guillem.githubbrowserlab.presentation.tools.imageloader.ImageLoader
 import javax.inject.Inject
 
@@ -69,7 +69,10 @@ class MainFragment : Fragment() {
 
     private fun configureSwipeToRefresh() {
         binding.viewSwipeToRefresh.apply {
-            setColorSchemeColors(getColor(R.color.purple_200), getColor(R.color.teal_200))
+            setColorSchemeColors(
+                context.getColorFromAttr(R.attr.colorPrimary),
+                context.getColorFromAttr(R.attr.colorSecondary)
+            )
             setOnRefreshListener { viewModel.onViewReady() }
         }
     }
