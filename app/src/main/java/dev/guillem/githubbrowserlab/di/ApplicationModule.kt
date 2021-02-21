@@ -43,7 +43,6 @@ object ApplicationModule {
     @Singleton
     fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor = jobExecutor
 
-
     @Provides
     @Singleton
     fun providePostExecutionThread(uiThread: UiThread): PostExecutionThread = uiThread

@@ -3,7 +3,7 @@ package dev.guillem.githubbrowserlab.data
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import dev.guillem.githubbrowserlab.data.factory.RepositoryFactory
+import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.data.mapper.RepositoryMapper
 import io.reactivex.Single
 import org.junit.Before
