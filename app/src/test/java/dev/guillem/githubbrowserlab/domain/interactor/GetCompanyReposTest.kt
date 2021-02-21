@@ -3,20 +3,14 @@ package dev.guillem.githubbrowserlab.domain.interactor
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import dev.guillem.githubbrowserlab.data.factory.RepositoryFactory
+import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.domain.ReposRepository
-import dev.guillem.githubbrowserlab.domain.entity.Repository
 import dev.guillem.githubbrowserlab.domain.executor.PostExecutionThread
 import dev.guillem.githubbrowserlab.domain.executor.ThreadExecutor
-import io.reactivex.Scheduler
 import io.reactivex.Single
-import io.reactivex.schedulers.TestScheduler
 import org.junit.Before
 
-import org.junit.Assert.*
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
 
 class GetCompanyReposTest {
     private lateinit var getCompanyRepos: GetCompanyRepos

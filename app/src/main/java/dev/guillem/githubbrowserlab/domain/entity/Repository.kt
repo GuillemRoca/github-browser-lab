@@ -5,6 +5,6 @@ data class Repository(
     val name: String,
     val owner: Owner,
     val htmlUrl: String,
-    val description: String,
+    val description: String?,
     val fork: Boolean,
 )

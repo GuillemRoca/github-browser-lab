@@ -1,8 +1,6 @@
 package dev.guillem.githubbrowserlab.data.mapper
 
-import dev.guillem.githubbrowserlab.data.model.OwnerEntity
-import dev.guillem.githubbrowserlab.data.factory.OwnerFactory
-import dev.guillem.githubbrowserlab.domain.entity.Owner
+import dev.guillem.githubbrowserlab.factory.OwnerFactory
 import org.junit.Before
 import org.junit.Test
 
@@ -21,24 +19,21 @@ class OwnerMapperTest {
 
     @Test
     fun `Should map from entity data`() {
+        val expectedOwner = OwnerFactory.makeOwner()
         val ownerEntity = OwnerFactory.makeOwnerEntity()
+
         val owner = ownerMapper.mapFromEntity(ownerEntity)
 
-        assertOwnerDataEquality(ownerEntity, owner)
+        assertEquals(owner, expectedOwner)
     }
 
     @Test
-    fun `Should map to entity data`() {
+    fun `Should map to entity`() {
+        val expectedOwnerEntity = OwnerFactory.makeOwnerEntity()
         val owner = OwnerFactory.makeOwner()
+
         val ownerEntity = ownerMapper.mapToEntity(owner)
 
-        assertOwnerDataEquality(ownerEntity, owner)
-    }
-
-    private fun assertOwnerDataEquality(ownerEntity: OwnerEntity, owner: Owner) {
-        assertEquals(ownerEntity.login, owner.login)
-        assertEquals(ownerEntity.id, owner.id)
-        assertEquals(ownerEntity.avatarUrl, ownerEntity.avatarUrl)
-        assertEquals(ownerEntity.htmlUrl, ownerEntity.htmlUrl)
+        assertEquals(ownerEntity, expectedOwnerEntity)
     }
 }

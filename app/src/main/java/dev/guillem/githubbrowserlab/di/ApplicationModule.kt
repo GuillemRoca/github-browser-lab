@@ -20,7 +20,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object ApplicationModule {
-
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit =
@@ -42,7 +41,6 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor = jobExecutor
-
 
     @Provides
     @Singleton

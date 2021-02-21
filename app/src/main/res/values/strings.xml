@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">GitHubBrowserLab</string>
+    <string name="app_name">GitHub Browser Lab</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_error_description">There was an error requesting the repos.\n\nMake sure you are connected to the internet</string>
+    <string name="dialog_repository_title">Seem interested?</string>
+    <string name="dialog_repository_description">Check out the following links to learn more</string>
+    <string name="learn_more_repository">Check repository details</string>
+    <string name="learn_more_owner">Check repository owner</string>
 </resources>
