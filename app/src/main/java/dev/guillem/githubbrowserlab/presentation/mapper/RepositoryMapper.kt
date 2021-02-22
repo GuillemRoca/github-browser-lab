@@ -14,6 +14,6 @@ class RepositoryMapper @Inject constructor(private val ownerMapper: OwnerMapper)
             owner = ownerMapper.mapToView(type.owner),
             htmlUrl = type.htmlUrl,
             description = type.description,
-            backgroundColor = if (type.fork) R.color.green_200 else R.color.white_transparent,
+            backgroundAttrColor = if (type.fork) R.attr.colorSecondary else R.attr.colorSurface,
         )
 }

@@ -1,6 +1,6 @@
 package dev.guillem.githubbrowserlab.presentation.model
 
-import androidx.annotation.ColorRes
+import androidx.annotation.AttrRes
 
 data class RepositoryView(
     val id: Int,
@@ -8,5 +8,5 @@ data class RepositoryView(
     val owner: OwnerView,
     val htmlUrl: String,
     val description: String?,
-    @ColorRes val backgroundColor: Int,
+    @AttrRes val backgroundAttrColor: Int,
 )

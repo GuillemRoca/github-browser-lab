@@ -2,10 +2,10 @@ package dev.guillem.githubbrowserlab.presentation.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.guillem.githubbrowserlab.databinding.ItemRepositoryBinding
 import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
+import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
 import dev.guillem.githubbrowserlab.presentation.tools.imageloader.ImageLoader
 
 class RepositoryAdapter(
@@ -30,9 +30,8 @@ class RepositoryAdapter(
                 binding.textRepositoryOwner.text = owner.login
                 imageLoader.load(owner.avatarUrl, binding.imageRepositoryOwner)
                 holder.itemView.setBackgroundColor(
-                    ContextCompat.getColor(
-                        itemView.context,
-                        backgroundColor
+                    holder.itemView.context.getColorFromAttr(
+                        backgroundAttrColor
                     )
                 )
                 holder.itemView.setOnLongClickListener {
