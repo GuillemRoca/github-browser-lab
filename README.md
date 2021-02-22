@@ -1,9 +1,9 @@
 # GitHub Browser Lab ![Test](https://github.com/GuillemRoca/GitHubBrowserLab/workflows/Android%20CI/badge.svg?branch=main&event=push)
 Another GitHub Android client to test and show architecture samples
 
-<p align="center">
- ![Demo](assets/demo.gif)
-</p>
+### Demo
+
+![Demo](assets/demo.gif)
 
 ### Introduction
 
