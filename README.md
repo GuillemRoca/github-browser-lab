@@ -3,7 +3,7 @@ Another GitHub Android client to test and show architecture samples
 
 ### Demo
 
-![Demo](GitHubBrowserLab/assets/demo.gif)
+![Demo](assets/demo.gif)
 
 ### Introduction
 
