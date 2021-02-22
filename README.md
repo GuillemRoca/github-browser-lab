@@ -5,7 +5,7 @@ Another GitHub Android client to test and show architecture samples
 
 ### Introduction
 
-Currently, this is a simple application tasked with displaying a list of public repositories from Github organization and get more information about them if interested.
+Currently, this is a simple application with dark theme support tasked with displaying a list of public repositories from Github organization and get more information about them if interested.
 
 ### Disclaimer
 
