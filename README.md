@@ -67,12 +67,12 @@ As a final note, this project also follows patterns found on [Android Architectu
 
 * Cache the data so it is available offline.
 
-TODO: If I was to implement this functionality I would extend the current use case and link it to an additional data repository and local data source to store the data in a local database.
+If I was to implement this functionality I would extend the current use case and link it to an additional data repository and local data source to store the data in a local database.
 
 In this particular case, I would use Room library (part of the Android Jetpack components) to store the data.
 
 * Implement a load more mechanism.
 
-TODO: If I was to implement this functionality I would extend the current use case and link it to an additional data repository that would handle the pagination logic based on a trigger from the UI. The UI in turn would trigger the flag to fetch more repositories with the help of an EndlessScrollListener in the recycler view.
+If I was to implement this functionality I would extend the current use case and link it to an additional data repository that would handle the pagination logic based on a trigger from the UI. The UI in turn would trigger the flag to fetch more repositories with the help of an EndlessScrollListener in the recycler view.
 
 Another approach could be using the Paging Jetpack library.
