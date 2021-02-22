@@ -39,11 +39,11 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$androidx_core_version"
-    implementation "androidx.fragment:fragment-ktx:1.3.0"
+    implementation "androidx.fragment:fragment-ktx:$androidx_fragment_version"
     implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
     implementation "com.google.android.material:material:$google_material_version"
     implementation "androidx.constraintlayout:constraintlayout:$androidx_constrait_layout_version"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$androidx_swipe_refresh_layout_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_livedata_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_viewmodel_version"
