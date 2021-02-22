@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "GitHubBrowserLab"
+rootProject.name = "github-browser-lab"
