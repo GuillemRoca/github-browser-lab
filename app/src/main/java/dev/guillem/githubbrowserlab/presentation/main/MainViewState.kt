@@ -2,9 +2,9 @@ package dev.guillem.githubbrowserlab.presentation.main
 
 import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
 
-data class MainViewState(
-    val isLoading: Boolean = false,
-    val isError: Boolean = false,
-    val repositories: List<RepositoryView> = emptyList(),
-    val lastClickedRepository: RepositoryView? = null,
-)
+sealed class MainViewState {
+    object Loading : MainViewState()
+    object Error : MainViewState()
+    data class Success(val repositories: List<RepositoryView>) : MainViewState()
+    data class RepositoryClicked(val repositoryView: RepositoryView) : MainViewState()
+}

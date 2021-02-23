@@ -20,17 +20,8 @@ class MainViewModel @Inject constructor(
 ) : ViewModel(), RepositoryClickListener {
     val viewState = MutableLiveData<MainViewState>()
 
-    init {
-        viewState.value = MainViewState()
-    }
-
     fun onViewReady() {
-        viewState.value = viewState.value?.copy(
-            isLoading = true,
-            isError = false,
-            repositories = emptyList(),
-            lastClickedRepository = null
-        )
+        viewState.value = MainViewState.Loading
         getCompanyReposUseCase.execute(GetCompanyReposObserver())
     }
 
@@ -43,18 +34,11 @@ class MainViewModel @Inject constructor(
         val repositoriesView = repositories.map { listItem ->
             repositoryMapper.mapToView(listItem)
         }
-        viewState.value = viewState.value?.copy(
-            isLoading = false,
-            isError = false,
-            repositories = repositoriesView
-        )
+        viewState.value = MainViewState.Success(repositoriesView)
     }
 
     private fun handleError() {
-        viewState.value = viewState.value?.copy(
-            isLoading = false,
-            isError = true,
-        )
+        viewState.value = MainViewState.Error
     }
 
     private inner class GetCompanyReposObserver : DisposableSingleObserver<List<Repository>>() {
@@ -68,9 +52,7 @@ class MainViewModel @Inject constructor(
     }
 
     override fun onRepositoryLongClick(repositoryView: RepositoryView) {
-        viewState.value = viewState.value?.copy(
-            lastClickedRepository = repositoryView
-        )
+        viewState.value = MainViewState.RepositoryClicked(repositoryView)
     }
 
     fun onLearnMoreRepositoryClick(context: Context, repositoryView: RepositoryView) {
