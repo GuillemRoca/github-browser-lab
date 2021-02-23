@@ -34,7 +34,7 @@ class MainViewModel @Inject constructor(
         val repositoriesView = repositories.map { listItem ->
             repositoryMapper.mapToView(listItem)
         }
-        viewState.value = MainViewState.Success(repositoriesView)
+        viewState.value = MainViewState.Content(repositoriesView)
     }
 
     private fun handleError() {

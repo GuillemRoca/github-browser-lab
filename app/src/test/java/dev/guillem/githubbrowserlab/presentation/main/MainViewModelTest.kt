@@ -59,7 +59,7 @@ class MainViewModelTest {
         viewModel.onViewReady()
         verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
         whenever(repositoryMapperMock.mapToView(SOME_REPOSITORY)).thenReturn(SOME_REPOSITORY_VIEW)
-        val viewStateExpected = MainViewState.Success(SOME_REPOSITORIES_VIEW)
+        val viewStateExpected = MainViewState.Content(SOME_REPOSITORIES_VIEW)
 
         getCompanyReposUseObserverCaptor.firstValue.onSuccess(SOME_REPOSITORIES)
 

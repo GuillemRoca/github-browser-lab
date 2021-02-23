@@ -82,7 +82,7 @@ class MainFragment : Fragment() {
         when (viewState) {
             MainViewState.Loading -> setupLoadingState()
             MainViewState.Error -> setupErrorState()
-            is MainViewState.Success -> setupSuccessState(viewState.repositories)
+            is MainViewState.Content -> setupSuccessState(viewState.repositories)
             is MainViewState.RepositoryClicked -> setupRepositoryClickedState(viewState.repositoryView)
         }
     }

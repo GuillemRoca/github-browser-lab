@@ -5,6 +5,6 @@ import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
 sealed class MainViewState {
     object Loading : MainViewState()
     object Error : MainViewState()
-    data class Success(val repositories: List<RepositoryView>) : MainViewState()
+    data class Content(val repositories: List<RepositoryView>) : MainViewState()
     data class RepositoryClicked(val repositoryView: RepositoryView) : MainViewState()
 }
