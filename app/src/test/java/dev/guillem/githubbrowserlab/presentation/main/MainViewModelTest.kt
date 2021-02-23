@@ -55,7 +55,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Should render success view state when success result of get company repos use case`() {
+    fun `Should render content view state when success result of get company repos use case`() {
         viewModel.onViewReady()
         verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
         whenever(repositoryMapperMock.mapToView(SOME_REPOSITORY)).thenReturn(SOME_REPOSITORY_VIEW)
