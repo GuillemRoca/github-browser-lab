@@ -32,13 +32,8 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Should set viewState with true isLoading when view ready`() {
-        val viewStateExpected = MainViewState().copy(
-            isLoading = true,
-            isError = false,
-            repositories = emptyList(),
-            lastClickedRepository = null
-        )
+    fun `Should set viewState with state Loading when view ready`() {
+        val viewStateExpected = MainViewState.Loading
 
         viewModel.onViewReady()
 
@@ -60,15 +55,11 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Should render success view state when success result of get company repos use case`() {
+    fun `Should render content view state when success result of get company repos use case`() {
         viewModel.onViewReady()
         verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
         whenever(repositoryMapperMock.mapToView(SOME_REPOSITORY)).thenReturn(SOME_REPOSITORY_VIEW)
-        val viewStateExpected = MainViewState().copy(
-            isLoading = false,
-            isError = false,
-            repositories = SOME_REPOSITORIES_VIEW
-        )
+        val viewStateExpected = MainViewState.Content(SOME_REPOSITORIES_VIEW)
 
         getCompanyReposUseObserverCaptor.firstValue.onSuccess(SOME_REPOSITORIES)
 
@@ -79,10 +70,7 @@ class MainViewModelTest {
     fun `Should render error view state when error result of get company repos use case`() {
         viewModel.onViewReady()
         verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
-        val viewStateExpected = MainViewState().copy(
-            isLoading = false,
-            isError = true,
-        )
+        val viewStateExpected = MainViewState.Error
 
         getCompanyReposUseObserverCaptor.firstValue.onError(Throwable())
 
@@ -90,10 +78,8 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Should update last repository when on repository long click`() {
-        val viewStateExpected = MainViewState().copy(
-            lastClickedRepository = SOME_REPOSITORY_VIEW
-        )
+    fun `Should render repository click view state when on repository long click`() {
+        val viewStateExpected = MainViewState.RepositoryClicked(SOME_REPOSITORY_VIEW)
 
         viewModel.onRepositoryLongClick(SOME_REPOSITORY_VIEW)
 
