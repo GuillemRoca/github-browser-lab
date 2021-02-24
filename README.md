@@ -1,7 +1,7 @@
 # GitHub Browser Lab ![Test](https://github.com/GuillemRoca/github-browser-lab/workflows/CI/badge.svg?branch=main&event=push)
 Another GitHub Android client to test and show architecture and UI/Material Design samples
-<img align="right" src="https://github.com/GuillemRoca/github-browser-lab/blob/main/assets/demo.gif" alt="A demo illustraating the UI of the app" width="320" height="676" style="display: inline; float: right"/>
 
+<img align="right" src="https://github.com/GuillemRoca/github-browser-lab/blob/main/assets/demo.gif" alt="A demo illustraating the UI of the app" width="320" height="676" style="display: inline; float: right"/>
 ### Introduction
 
 Currently, this is a simple application with dark theme support tasked with displaying a list of public repositories from Github organization and get more information about them if interested.
