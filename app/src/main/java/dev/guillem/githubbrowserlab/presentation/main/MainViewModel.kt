@@ -1,6 +1,7 @@
 package dev.guillem.githubbrowserlab.presentation.main
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,10 +19,12 @@ class MainViewModel @Inject constructor(
     private val getCompanyReposUseCase: GetCompanyRepos,
     private val browser: Browser,
 ) : ViewModel(), RepositoryClickListener {
-    val viewState = MutableLiveData<MainViewState>()
+    private val _viewState = MutableLiveData<MainViewState>()
+    val viewState: LiveData<MainViewState>
+        get() = _viewState
 
     fun onViewReady() {
-        viewState.value = MainViewState.Loading
+        _viewState.value = MainViewState.Loading
         getCompanyReposUseCase.execute(GetCompanyReposObserver())
     }
 
@@ -34,11 +37,11 @@ class MainViewModel @Inject constructor(
         val repositoriesView = repositories.map { listItem ->
             repositoryMapper.mapToView(listItem)
         }
-        viewState.value = MainViewState.Content(repositoriesView)
+        _viewState.value = MainViewState.Content(repositoriesView)
     }
 
     private fun handleError() {
-        viewState.value = MainViewState.Error
+        _viewState.value = MainViewState.Error
     }
 
     private inner class GetCompanyReposObserver : DisposableSingleObserver<List<Repository>>() {
@@ -52,7 +55,7 @@ class MainViewModel @Inject constructor(
     }
 
     override fun onRepositoryLongClick(repositoryView: RepositoryView) {
-        viewState.value = MainViewState.RepositoryClicked(repositoryView)
+        _viewState.value = MainViewState.RepositoryClicked(repositoryView)
     }
 
     fun onLearnMoreRepositoryClick(context: Context, repositoryView: RepositoryView) {
