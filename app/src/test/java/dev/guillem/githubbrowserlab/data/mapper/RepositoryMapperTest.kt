@@ -1,16 +1,12 @@
 package dev.guillem.githubbrowserlab.data.mapper
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
-import dev.guillem.githubbrowserlab.data.model.RepositoryEntity
-import dev.guillem.githubbrowserlab.factory.OwnerFactory
 import dev.guillem.githubbrowserlab.factory.RepositoryFactory
-import dev.guillem.githubbrowserlab.domain.entity.Repository
 import org.junit.Before
 import org.junit.Test
-
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import kotlin.test.assertEquals
 
 @RunWith(JUnit4::class)
@@ -27,7 +23,9 @@ class RepositoryMapperTest {
     fun `Should map from entity`() {
         val expectedRepository = RepositoryFactory.makeRepository()
         val repositoryEntity = RepositoryFactory.makeRepositoryEntity()
-        whenever(ownerMapperMock.mapFromEntity(repositoryEntity.owner)).thenReturn(expectedRepository.owner)
+        whenever(ownerMapperMock.mapFromEntity(repositoryEntity.owner)).thenReturn(
+            expectedRepository.owner
+        )
 
         val repository = repositoryMapper.mapFromEntity(repositoryEntity)
 

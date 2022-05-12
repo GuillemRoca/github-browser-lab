@@ -1,16 +1,15 @@
 package dev.guillem.githubbrowserlab.domain.interactor
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
-import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.domain.ReposRepository
 import dev.guillem.githubbrowserlab.domain.executor.PostExecutionThread
 import dev.guillem.githubbrowserlab.domain.executor.ThreadExecutor
+import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import io.reactivex.Single
 import org.junit.Before
-
 import org.junit.Test
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 
 class GetCompanyReposTest {
     private lateinit var getCompanyRepos: GetCompanyRepos

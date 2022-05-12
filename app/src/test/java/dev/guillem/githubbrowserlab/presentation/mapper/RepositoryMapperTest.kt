@@ -1,13 +1,12 @@
 package dev.guillem.githubbrowserlab.presentation.mapper
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
 import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import org.junit.Before
-
 import org.junit.Assert.*
 import org.junit.Test
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 class RepositoryMapperTest {
     private lateinit var repositoryMapper: RepositoryMapper
