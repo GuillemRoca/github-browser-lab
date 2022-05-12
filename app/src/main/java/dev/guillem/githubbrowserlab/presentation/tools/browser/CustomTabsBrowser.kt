@@ -2,10 +2,7 @@ package dev.guillem.githubbrowserlab.presentation.tools.browser
 
 import android.content.Context
 import android.net.Uri
-import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
-import dev.guillem.githubbrowserlab.R
-import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
 import javax.inject.Inject
 
 class CustomTabsBrowser @Inject constructor() : Browser {
