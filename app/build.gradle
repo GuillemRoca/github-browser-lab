@@ -27,6 +27,10 @@ android {
     }
     buildFeatures.viewBinding true
     namespace 'dev.guillem.githubbrowserlab'
+
+    lintOptions {
+        disable "JvmStaticProvidesInObjectDetector", "FieldSiteTargetOnQualifierAnnotation", "ModuleCompanionObjects", "ModuleCompanionObjectsNotInModuleParent"
+    }
 }
 
 dependencies {
