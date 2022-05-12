@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package dev.guillem.githubbrowserlab
 
 import android.app.Application
