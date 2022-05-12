@@ -2,17 +2,17 @@ package dev.guillem.githubbrowserlab.presentation.main
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockitokotlin2.*
 import dev.guillem.githubbrowserlab.domain.entity.Repository
 import dev.guillem.githubbrowserlab.domain.interactor.GetCompanyRepos
 import dev.guillem.githubbrowserlab.factory.RepositoryFactory
 import dev.guillem.githubbrowserlab.presentation.mapper.RepositoryMapper
 import dev.guillem.githubbrowserlab.presentation.tools.browser.Browser
 import io.reactivex.observers.DisposableSingleObserver
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.kotlin.*
+import kotlin.test.assertEquals
 
 class MainViewModelTest {
     @get:Rule
