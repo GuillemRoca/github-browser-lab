@@ -41,7 +41,7 @@ ext {
     androidx_livedata_version = "2.4.1"
     androidx_viewmodel_version = "2.4.1"
     androidx_browser_version = "1.4.0"
-    google_material_version = "1.6.0"
+    google_material_version = "1.6.1"
     recyclerview_version = "1.2.1"
     glide_version = "4.13.2"
     rxandroid_version = "2.1.1"
