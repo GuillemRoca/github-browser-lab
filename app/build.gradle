@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion rootProject.compile_sdk_version
-    buildToolsVersion "30.0.3"
+    compileSdk rootProject.compile_sdk_version
 
     defaultConfig {
         applicationId "dev.guillem.githubbrowserlab"
-        minSdkVersion rootProject.min_sdk_version
-        targetSdkVersion rootProject.target_sdk_version
+        minSdk rootProject.min_sdk_version
+        targetSdk rootProject.target_sdk_version
         versionCode 1
         versionName "1.0"
+        resConfigs "en", "ca", "es"
 
         testInstrumentationRunner "dev.guillem.githubbrowserlab.CustomTestRunner"
     }
