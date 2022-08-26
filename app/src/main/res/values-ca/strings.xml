@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Navegador laboratori GitHub</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_error_description">S\'ha produït un error en sol·licitar els repositoris.\n\nAssegureu-vos que esteu connectat a Internet</string>
+    <string name="dialog_repository_title">Sembla interessat?</string>
+    <string name="dialog_repository_description">Consulteu els enllaços següents per obtenir més informació</string>
+    <string name="learn_more_repository">Comprova els detalls del repositori</string>
+    <string name="learn_more_owner">Comprova el propietari del repositori</string>
+</resources>
