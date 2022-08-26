@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Laboratiorio navegador GitHub</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_error_description">Hubo un error al solicitar los repositorios.\n\nAsegúrate de estar conectado a Internet</string>
+    <string name="dialog_repository_title">¿Parece interesado?</string>
+    <string name="dialog_repository_description">Consulte los siguientes enlaces para obtener más información</string>
+    <string name="learn_more_repository">Verificar detalles del repositorio</string>
+    <string name="learn_more_owner">Comprobar propietario del repositorio</string>
+</resources>
