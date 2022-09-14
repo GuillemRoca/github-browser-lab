@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Laboratiorio navegador GitHub</string>
+    <string name="app_name">Agenda</string>
     <string name="dialog_error_title">Error</string>
     <string name="dialog_error_description">Hubo un error al solicitar los repositorios.\n\nAsegúrate de estar conectado a Internet</string>
     <string name="dialog_repository_title">¿Parece interesado?</string>
