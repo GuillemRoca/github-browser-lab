@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.databinding.MainFragmentBinding
+import dev.guillem.githubbrowserlab.domain.entity.User
 import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
 import dev.guillem.githubbrowserlab.presentation.tools.dialog.AlertDialogFactory
 import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
@@ -61,8 +62,6 @@ class MainFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             repositoryAdapter = RepositoryAdapter(
                 mutableListOf(),
-                viewModel as RepositoryClickListener,
-                imageLoader,
             )
             adapter = repositoryAdapter
         }
@@ -72,7 +71,6 @@ class MainFragment : Fragment() {
         binding.viewSwipeToRefresh.apply {
             setColorSchemeColors(
                 context.getColorFromAttr(R.attr.colorPrimary),
-                context.getColorFromAttr(R.attr.colorSecondary)
             )
             setOnRefreshListener { viewModel.onViewReady() }
         }
@@ -82,8 +80,7 @@ class MainFragment : Fragment() {
         when (viewState) {
             MainViewState.Loading -> setupLoadingState()
             MainViewState.Error -> setupErrorState()
-            is MainViewState.Content -> setupSuccessState(viewState.repositories)
-            is MainViewState.RepositoryClicked -> setupRepositoryClickedState(viewState.repositoryView)
+            is MainViewState.Content -> setupSuccessState(viewState.users)
         }
     }
 
@@ -96,21 +93,9 @@ class MainFragment : Fragment() {
         alertDialogFactory.showError(requireContext())
     }
 
-    private fun setupSuccessState(repositories: List<RepositoryView>) {
+    private fun setupSuccessState(users: List<User>) {
         binding.viewSwipeToRefresh.isRefreshing = false
-        repositoryAdapter.update(repositories)
-    }
-
-    private fun setupRepositoryClickedState(repositoryView: RepositoryView) {
-        alertDialogFactory.showMoreInfoRepository(
-            context = requireContext(),
-            learnMoreRepositoryClickListener = { _, _ ->
-                viewModel.onLearnMoreRepositoryClick(requireContext(), repositoryView)
-            },
-            learnMoreOwnerClickListener = { _, _ ->
-                viewModel.onLearnMoreOwnerClick(requireContext(), repositoryView)
-            }
-        )
+        repositoryAdapter.update(users)
     }
 
     companion object {

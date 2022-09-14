@@ -4,14 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.guillem.githubbrowserlab.databinding.ItemRepositoryBinding
-import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
-import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
-import dev.guillem.githubbrowserlab.presentation.tools.imageloader.ImageLoader
+import dev.guillem.githubbrowserlab.domain.entity.User
 
 class RepositoryAdapter(
-    private val repositories: MutableList<RepositoryView>,
-    private val repositoryClickListener: RepositoryClickListener,
-    private val imageLoader: ImageLoader,
+    private val repositories: MutableList<User>
 ) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
@@ -25,30 +21,20 @@ class RepositoryAdapter(
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         with(holder) {
             with(repositories[position]) {
-                binding.textRepositoryTitle.text = name
-                binding.textRepositoryDescription.text = description
-                binding.textRepositoryOwner.text = owner.login
-                imageLoader.load(owner.avatarUrl, binding.imageRepositoryOwner)
-                holder.itemView.setBackgroundColor(
-                    holder.itemView.context.getColorFromAttr(
-                        backgroundAttrColor
-                    )
-                )
-                holder.itemView.setOnLongClickListener {
-                    repositoryClickListener.onRepositoryLongClick(this)
-                    true
-                }
+                binding.textUserName.text = name
+                binding.textUserAddress.text = address
+                binding.textUserPhone.text = phone
+                binding.textUserEmail.text = email
             }
         }
     }
 
-    fun update(repositories: List<RepositoryView>) {
+    fun update(users: List<User>) {
         this.repositories.clear()
-        this.repositories.addAll(repositories)
+        this.repositories.addAll(users)
         notifyDataSetChanged()
     }
 
     inner class RepositoryViewHolder(val binding: ItemRepositoryBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 }
