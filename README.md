@@ -3,7 +3,7 @@ Another Agenda to test and show architecture and UI/Material Design samples
 
 ### Introduction
 
-Currently, this is a simple application with dark theme support tasked with displaying a list users from a CSV file.
+Currently, this is a strip down simplified application from the one available in the main branch with dark theme support tasked with displaying a list users from a CSV file.
 
 ### Functionality
 
