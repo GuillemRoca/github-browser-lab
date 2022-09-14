@@ -8,27 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.databinding.MainFragmentBinding
 import dev.guillem.githubbrowserlab.domain.entity.User
-import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
-import dev.guillem.githubbrowserlab.presentation.tools.dialog.AlertDialogFactory
-import dev.guillem.githubbrowserlab.presentation.tools.extensions.getColorFromAttr
-import dev.guillem.githubbrowserlab.presentation.tools.imageloader.ImageLoader
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
-
-    @Inject
-    lateinit var imageLoader: ImageLoader
-
-    @Inject
-    lateinit var alertDialogFactory: AlertDialogFactory
     private var sourceBinding: MainFragmentBinding? = null
     private val binding get() = sourceBinding!!
     private val viewModel: MainViewModel by viewModels()
-    private lateinit var repositoryAdapter: RepositoryAdapter
+    private lateinit var userAdapter: UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,18 +48,15 @@ class MainFragment : Fragment() {
     private fun configureRecyclerView() {
         binding.recyclerviewRepositories.apply {
             layoutManager = LinearLayoutManager(context)
-            repositoryAdapter = RepositoryAdapter(
+            userAdapter = UserAdapter(
                 mutableListOf(),
             )
-            adapter = repositoryAdapter
+            adapter = userAdapter
         }
     }
 
     private fun configureSwipeToRefresh() {
         binding.viewSwipeToRefresh.apply {
-            setColorSchemeColors(
-                context.getColorFromAttr(R.attr.colorPrimary),
-            )
             setOnRefreshListener { viewModel.onViewReady() }
         }
     }
@@ -90,12 +75,11 @@ class MainFragment : Fragment() {
 
     private fun setupErrorState() {
         binding.viewSwipeToRefresh.isRefreshing = false
-        alertDialogFactory.showError(requireContext())
     }
 
     private fun setupSuccessState(users: List<User>) {
         binding.viewSwipeToRefresh.isRefreshing = false
-        repositoryAdapter.update(users)
+        userAdapter.update(users)
     }
 
     companion object {

@@ -1,8 +1,6 @@
 package dev.guillem.githubbrowserlab.data.mapper
 
-import dev.guillem.githubbrowserlab.data.model.OwnerEntity
 import dev.guillem.githubbrowserlab.data.model.UserEntity
-import dev.guillem.githubbrowserlab.domain.entity.Owner
 import dev.guillem.githubbrowserlab.domain.entity.User
 import javax.inject.Inject
 

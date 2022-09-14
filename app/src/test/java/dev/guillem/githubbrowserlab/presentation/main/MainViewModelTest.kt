@@ -1,12 +1,9 @@
 package dev.guillem.githubbrowserlab.presentation.main
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import dev.guillem.githubbrowserlab.domain.entity.Repository
-import dev.guillem.githubbrowserlab.domain.interactor.GetCompanyRepos
-import dev.guillem.githubbrowserlab.factory.RepositoryFactory
-import dev.guillem.githubbrowserlab.presentation.mapper.RepositoryMapper
-import dev.guillem.githubbrowserlab.presentation.tools.browser.Browser
+import dev.guillem.githubbrowserlab.domain.entity.User
+import dev.guillem.githubbrowserlab.domain.interactor.GetUsers
+import dev.guillem.githubbrowserlab.factory.UserFactory
 import io.reactivex.observers.DisposableSingleObserver
 import org.junit.Before
 import org.junit.Rule
@@ -19,16 +16,13 @@ class MainViewModelTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var viewModel: MainViewModel
-    private val repositoryMapperMock: RepositoryMapper = mock()
-    private val getCompanyReposUseCaseMock: GetCompanyRepos = mock()
-    private val browserMock: Browser = mock()
-    private val contextMock: Context = mock()
-    private val getCompanyReposUseObserverCaptor =
-        argumentCaptor<DisposableSingleObserver<List<Repository>>>()
+    private val getUsersMock: GetUsers = mock()
+    private val getUsersUseObserverCaptor =
+        argumentCaptor<DisposableSingleObserver<List<User>>>()
 
     @Before
     fun setUp() {
-        viewModel = MainViewModel(repositoryMapperMock, getCompanyReposUseCaseMock, browserMock)
+        viewModel = MainViewModel(getUsersMock)
     }
 
     @Test
@@ -41,73 +35,42 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Should execute getCompanyRepos use case when view ready`() {
+    fun `Should execute get users use case when view ready`() {
         viewModel.onViewReady()
 
-        verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
+        verify(getUsersMock).execute(getUsersUseObserverCaptor.capture())
     }
 
     @Test
-    fun `Should clear getCompanyRepos use case when view ready`() {
+    fun `Should clear get users use case when view ready`() {
         viewModel.onCleared()
 
-        verify(getCompanyReposUseCaseMock).clear()
+        verify(getUsersMock).clear()
     }
 
     @Test
-    fun `Should render content view state when success result of get company repos use case`() {
+    fun `Should render content view state when success result of get users use case`() {
         viewModel.onViewReady()
-        verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
-        whenever(repositoryMapperMock.mapToView(SOME_REPOSITORY)).thenReturn(SOME_REPOSITORY_VIEW)
-        val viewStateExpected = MainViewState.Content(SOME_REPOSITORIES_VIEW)
+        verify(getUsersMock).execute(getUsersUseObserverCaptor.capture())
+        val viewStateExpected = MainViewState.Content(SOME_USERS)
 
-        getCompanyReposUseObserverCaptor.firstValue.onSuccess(SOME_REPOSITORIES)
+        getUsersUseObserverCaptor.firstValue.onSuccess(SOME_USERS)
 
         assertEquals(viewModel.viewState.value, viewStateExpected)
     }
 
     @Test
-    fun `Should render error view state when error result of get company repos use case`() {
+    fun `Should render error view state when error result of get users use case`() {
         viewModel.onViewReady()
-        verify(getCompanyReposUseCaseMock).execute(getCompanyReposUseObserverCaptor.capture())
+        verify(getUsersMock).execute(getUsersUseObserverCaptor.capture())
         val viewStateExpected = MainViewState.Error
 
-        getCompanyReposUseObserverCaptor.firstValue.onError(Throwable())
+        getUsersUseObserverCaptor.firstValue.onError(Throwable())
 
         assertEquals(viewModel.viewState.value, viewStateExpected)
-    }
-
-    @Test
-    fun `Should render repository click view state when on repository long click`() {
-        val viewStateExpected = MainViewState.RepositoryClicked(SOME_REPOSITORY_VIEW)
-
-        viewModel.onRepositoryLongClick(SOME_REPOSITORY_VIEW)
-
-        assertEquals(viewModel.viewState.value, viewStateExpected)
-    }
-
-    @Test
-    fun `Should launch repository browser url when on learn more repository click`() {
-        val urlExpected = SOME_REPOSITORY_VIEW.htmlUrl
-
-        viewModel.onLearnMoreRepositoryClick(contextMock, SOME_REPOSITORY_VIEW)
-
-        verify(browserMock).launch(eq(contextMock), eq(urlExpected))
-    }
-
-    @Test
-    fun `Should launch owner browser url when on learn more owner click`() {
-        val urlExpected = SOME_REPOSITORY_VIEW.owner.htmlUrl
-
-        viewModel.onLearnMoreOwnerClick(contextMock, SOME_REPOSITORY_VIEW)
-
-        verify(browserMock).launch(eq(contextMock), eq(urlExpected))
     }
 
     companion object {
-        private val SOME_REPOSITORY = RepositoryFactory.makeRepository()
-        private val SOME_REPOSITORIES = listOf(SOME_REPOSITORY)
-        private val SOME_REPOSITORY_VIEW = RepositoryFactory.makeRepositoryView()
-        private val SOME_REPOSITORIES_VIEW = listOf(SOME_REPOSITORY_VIEW)
+        private val SOME_USERS = listOf(UserFactory.makeUser())
     }
 }

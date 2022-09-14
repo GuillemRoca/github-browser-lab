@@ -6,21 +6,21 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.guillem.githubbrowserlab.databinding.ItemRepositoryBinding
 import dev.guillem.githubbrowserlab.domain.entity.User
 
-class RepositoryAdapter(
-    private val repositories: MutableList<User>
-) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+class UserAdapter(
+    private val users: MutableList<User>
+) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding =
             ItemRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RepositoryViewHolder(binding)
+        return UserViewHolder(binding)
     }
 
-    override fun getItemCount() = repositories.size
+    override fun getItemCount() = users.size
 
-    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         with(holder) {
-            with(repositories[position]) {
+            with(users[position]) {
                 binding.textUserName.text = name
                 binding.textUserAddress.text = address
                 binding.textUserPhone.text = phone
@@ -30,11 +30,11 @@ class RepositoryAdapter(
     }
 
     fun update(users: List<User>) {
-        this.repositories.clear()
-        this.repositories.addAll(users)
+        this.users.clear()
+        this.users.addAll(users)
         notifyDataSetChanged()
     }
 
-    inner class RepositoryViewHolder(val binding: ItemRepositoryBinding) :
+    inner class UserViewHolder(val binding: ItemRepositoryBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

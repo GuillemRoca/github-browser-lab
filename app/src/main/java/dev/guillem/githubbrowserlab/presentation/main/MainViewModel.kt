@@ -5,19 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.guillem.githubbrowserlab.domain.entity.User
-import dev.guillem.githubbrowserlab.domain.interactor.GetCompanyRepos
 import dev.guillem.githubbrowserlab.domain.interactor.GetUsers
-import dev.guillem.githubbrowserlab.presentation.mapper.RepositoryMapper
-import dev.guillem.githubbrowserlab.presentation.tools.browser.Browser
 import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repositoryMapper: RepositoryMapper,
-    private val getCompanyReposUseCase: GetCompanyRepos,
     private val getUsers: GetUsers,
-    private val browser: Browser,
 ) : ViewModel() {
     private val _viewState = MutableLiveData<MainViewState>()
     val viewState: LiveData<MainViewState>

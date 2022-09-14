@@ -46,7 +46,7 @@ class MainActivityTest {
         SystemClock.sleep(2000)
 
         onView(withId(R.id.recyclerview_repositories)).perform(
-            actionOnItemAtPosition<RepositoryAdapter.RepositoryViewHolder>(
+            actionOnItemAtPosition<UserAdapter.UserViewHolder>(
                 0,
                 longClick()
             )
@@ -63,27 +63,10 @@ class MainActivityTest {
         SystemClock.sleep(2000)
 
         onView(withId(R.id.recyclerview_repositories)).perform(
-            actionOnItemAtPosition<RepositoryAdapter.RepositoryViewHolder>(
+            actionOnItemAtPosition<UserAdapter.UserViewHolder>(
                 10,
                 scrollTo()
             )
         )
-    }
-
-    @Test
-    fun checkDialogDisplayed() {
-        ActivityScenario.launch(MainActivity::class.java)
-
-        SystemClock.sleep(2000)
-
-        onView(withId(R.id.recyclerview_repositories)).perform(
-            actionOnItemAtPosition<RepositoryAdapter.RepositoryViewHolder>(
-                0,
-                longClick()
-            )
-        )
-
-        onView(withText(R.string.dialog_repository_title)).check(matches(isDisplayed()))
-        onView(withText(R.string.dialog_repository_description)).check(matches(isDisplayed()))
     }
 }

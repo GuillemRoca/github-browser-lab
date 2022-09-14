@@ -1,10 +1,8 @@
 package dev.guillem.githubbrowserlab.domain
 
-import dev.guillem.githubbrowserlab.domain.entity.Repository
 import dev.guillem.githubbrowserlab.domain.entity.User
 import io.reactivex.Single
 
-interface ReposRepository {
-    fun getCompanyRepos(): Single<List<Repository>>
+interface UsersRepository {
     fun getUsersFromCSV(): Single<List<User>>
 }
