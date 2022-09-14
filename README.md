@@ -37,7 +37,9 @@ Ideally, every layer could be represented in a separate module, thus achieving s
 
 By design, I implemented the domain and data layer as a pure-kotlin to avoid filtering any android framework dependencies (with the exception of the application context to get the raw asset and logging). For these two layers, I've used RxJava as the threading library of choice.
 
-The data layer is where the data sources are implemented and in this case, it parses the CSV from resources and returns it.
+The data layer is where the data sources are implemented and in this case, it parses the CSV from resources and returns it. 
+
+In this case I'm parsing all the file at once but if the file was bigger I would implement a async logic to load more items whenever the user scrolls further to simulate an infinite scroll. Furthermore I decided to use a BufferedReader in UsersDataSource to increase performance.
 
 The domain layer is where the domain entities and business logic are. Still since we only aim to display the info no further logic was added.
 
