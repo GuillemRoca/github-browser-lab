@@ -1,12 +1,18 @@
 package dev.guillem.githubbrowserlab.di
 
+import android.app.Application
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dev.guillem.githubbrowserlab.data.ApiService
 import dev.guillem.githubbrowserlab.data.ReposDataRepository
+import dev.guillem.githubbrowserlab.data.UsersDataSource
 import dev.guillem.githubbrowserlab.data.executor.JobExecutor
+import dev.guillem.githubbrowserlab.data.mapper.UserMapper
 import dev.guillem.githubbrowserlab.domain.ReposRepository
 import dev.guillem.githubbrowserlab.domain.executor.PostExecutionThread
 import dev.guillem.githubbrowserlab.domain.executor.ThreadExecutor
@@ -36,7 +42,8 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideReposRepository(reposDataRepository: ReposDataRepository): ReposRepository = reposDataRepository
+    fun provideReposRepository(reposDataRepository: ReposDataRepository): ReposRepository =
+        reposDataRepository
 
     @Provides
     @Singleton
@@ -45,4 +52,12 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun providePostExecutionThread(uiThread: UiThread): PostExecutionThread = uiThread
+
+    @Provides
+    @Singleton
+    fun provideUserDataSource(
+        @ApplicationContext appContext: Context,
+        userMapper: UserMapper
+    ): UsersDataSource =
+        UsersDataSource(appContext, userMapper)
 }
