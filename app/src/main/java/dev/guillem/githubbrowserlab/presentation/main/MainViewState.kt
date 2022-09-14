@@ -1,10 +1,9 @@
 package dev.guillem.githubbrowserlab.presentation.main
 
-import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
+import dev.guillem.githubbrowserlab.domain.entity.User
 
 sealed class MainViewState {
     object Loading : MainViewState()
     object Error : MainViewState()
-    data class Content(val repositories: List<RepositoryView>) : MainViewState()
-    data class RepositoryClicked(val repositoryView: RepositoryView) : MainViewState()
+    data class Content(val users: List<User>) : MainViewState()
 }
