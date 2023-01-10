@@ -50,7 +50,7 @@ ext {
 
     junit_version = "4.13.2"
     androidx_junit_version = "1.1.5"
-    androidx_expresso_version = "3.5.0"
+    androidx_expresso_version = "3.5.1"
     androidx_core_testing_version = "2.1.0"
     kotlin_junit = "1.8.0"
     mockito_kotlin = "4.1.0"
