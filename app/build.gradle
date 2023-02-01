@@ -7,7 +7,7 @@ plugins {
 
 android {
     compileSdk rootProject.compile_sdk_version
-
+    namespace 'dev.guillem.githubbrowserlab'
     defaultConfig {
         applicationId "dev.guillem.githubbrowserlab"
         minSdk rootProject.min_sdk_version
@@ -26,7 +26,6 @@ android {
         }
     }
     buildFeatures.viewBinding true
-    namespace 'dev.guillem.githubbrowserlab'
     lint {
         disable 'JvmStaticProvidesInObjectDetector', 'FieldSiteTargetOnQualifierAnnotation', 'ModuleCompanionObjects', 'ModuleCompanionObjectsNotInModuleParent'
     }
