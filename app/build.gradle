@@ -7,14 +7,14 @@ plugins {
 
 android {
     compileSdk rootProject.compile_sdk_version
-
+    namespace 'dev.guillem.githubbrowserlab'
     defaultConfig {
         applicationId "dev.guillem.githubbrowserlab"
         minSdk rootProject.min_sdk_version
         targetSdk rootProject.target_sdk_version
         versionCode 1
         versionName "1.0"
-        resConfigs "en", "ca", "es"
+        resConfigs 'en', 'ca', 'es'
 
         testInstrumentationRunner "dev.guillem.githubbrowserlab.CustomTestRunner"
     }
@@ -26,11 +26,10 @@ android {
         }
     }
     buildFeatures.viewBinding true
-    namespace 'dev.guillem.githubbrowserlab'
-
-    lintOptions {
-        disable "JvmStaticProvidesInObjectDetector", "FieldSiteTargetOnQualifierAnnotation", "ModuleCompanionObjects", "ModuleCompanionObjectsNotInModuleParent"
+    lint {
+        disable 'JvmStaticProvidesInObjectDetector', 'FieldSiteTargetOnQualifierAnnotation', 'ModuleCompanionObjects', 'ModuleCompanionObjectsNotInModuleParent'
     }
+
 }
 
 dependencies {
