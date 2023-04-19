@@ -14,7 +14,7 @@ android {
         targetSdk rootProject.target_sdk_version
         versionCode 1
         versionName "1.0"
-        resConfigs 'en', 'ca', 'es'
+        resourceConfigurations += ['en', 'ca', 'es']
 
         testInstrumentationRunner "dev.guillem.githubbrowserlab.CustomTestRunner"
     }
