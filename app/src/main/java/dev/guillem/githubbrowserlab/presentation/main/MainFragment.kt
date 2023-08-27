@@ -71,8 +71,8 @@ class MainFragment : Fragment() {
     private fun configureSwipeToRefresh() {
         binding.viewSwipeToRefresh.apply {
             setColorSchemeColors(
-                context.getColorFromAttr(R.attr.colorPrimary),
-                context.getColorFromAttr(R.attr.colorSecondary)
+                context.getColorFromAttr(androidx.appcompat.R.attr.colorPrimary),
+                context.getColorFromAttr(com.google.android.material.R.attr.colorSecondary)
             )
             setOnRefreshListener { viewModel.onViewReady() }
         }

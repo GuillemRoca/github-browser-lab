@@ -11,7 +11,7 @@ object RepositoryFactory {
     private const val SOME_HTML_URL = "https://github.com/github/media"
     private const val SOME_DESCRIPTION = "Media files for use in your GitHub integration projects"
     private const val SOME_IS_FORKED = false
-    private const val SOME_ATTRIBUTE_COLOR = R.attr.colorSurface
+    private const val SOME_ATTRIBUTE_COLOR = com.google.android.material.R.attr.colorSurface
     private val SOME_OWNER_ENTITY = OwnerFactory.makeOwnerEntity()
     private val SOME_OWNER = OwnerFactory.makeOwner()
     private val SOME_OWNER_VIEW = OwnerFactory.makeOwnerView()
