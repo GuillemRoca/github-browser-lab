@@ -32,7 +32,7 @@ class RepositoryMapperTest {
     fun `Should background color be secondary when when map to view with repository forked`() {
         val expectedRepositoryView = RepositoryFactory
             .makeRepositoryView()
-            .copy(backgroundAttrColor = R.attr.colorSecondary)
+            .copy(backgroundAttrColor = com.google.android.material.R.attr.colorSecondary)
         val repository = RepositoryFactory
             .makeRepository()
             .copy(fork = true)
