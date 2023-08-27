@@ -19,11 +19,12 @@ updates:
           - "org.jetbrains.kotlin:kotlin-gradle-plugin"
           - "org.jetbrains.kotlin:kotlin-reflect"
           - "org.jetbrains.kotlin:kotlin-test"
-          - "androidx.compose.compiler:compiler"
-          - "composeOptions"
       patch-dependencies:
         patterns:
           - "*"
         update-types:
           - "minor"
           - "patch"
+        exclude-patterns:
+          - "org.jetbrains.kotlin.*"
+          - "org.jetbrains.kotlin:*"
