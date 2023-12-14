@@ -1,13 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.9.21"
-    ext.hilt_version = '2.48.1'
+    ext.hilt_version = '2.49'
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.4'
+        classpath 'com.android.tools.build:gradle:8.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
@@ -53,5 +53,5 @@ ext {
     androidx_expresso_version = "3.5.1"
     androidx_core_testing_version = "2.2.0"
     kotlin_junit = "1.9.21"
-    mockito_kotlin = "5.1.0"
+    mockito_kotlin = "5.2.1"
 }
