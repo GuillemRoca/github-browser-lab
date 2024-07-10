@@ -30,11 +30,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures.viewBinding true
+
+    buildFeatures {
+        viewBinding true
+    }
+
     lint {
         disable 'JvmStaticProvidesInObjectDetector', 'FieldSiteTargetOnQualifierAnnotation', 'ModuleCompanionObjects', 'ModuleCompanionObjectsNotInModuleParent'
     }
-
 }
 
 dependencies {
