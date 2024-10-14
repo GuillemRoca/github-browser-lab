@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.6.1'
+        classpath 'com.android.tools.build:gradle:8.7.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
@@ -34,7 +34,7 @@ ext {
     compile_sdk_version = 34
 
     androidx_core_version = "1.13.1"
-    androidx_fragment_version = "1.8.3"
+    androidx_fragment_version = "1.8.4"
     androidx_appcompat_version = "1.7.0"
     androidx_constrait_layout_version = "2.1.4"
     androidx_swipe_refresh_layout_version = "1.1.0"
