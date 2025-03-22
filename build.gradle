@@ -30,7 +30,7 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     min_sdk_version = 21
-    target_sdk_version = 34
+    target_sdk_version = 35
     compile_sdk_version = 35
 
     androidx_core_version = "1.15.0"
