@@ -34,7 +34,7 @@ ext {
     compile_sdk_version = 35
 
     androidx_core_version = "1.16.0"
-    androidx_fragment_version = "1.8.6"
+    androidx_fragment_version = "1.8.7"
     androidx_appcompat_version = "1.7.0"
     androidx_constrait_layout_version = "2.2.1"
     androidx_swipe_refresh_layout_version = "1.1.0"
