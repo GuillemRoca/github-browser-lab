@@ -5,6 +5,11 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// Align Kotlin to Java 17 using JVM Toolchain to avoid target compatibility mismatch
+kotlin {
+    jvmToolchain(17)
+}
+
 android {
     compileSdk rootProject.compile_sdk_version
     namespace 'dev.guillem.githubbrowserlab'
