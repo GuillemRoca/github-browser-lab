@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import dev.guillem.githubbrowserlab.R
 import dev.guillem.githubbrowserlab.databinding.MainFragmentBinding
 import dev.guillem.githubbrowserlab.presentation.model.RepositoryView
 import dev.guillem.githubbrowserlab.presentation.tools.dialog.AlertDialogFactory
