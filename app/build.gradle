@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.compile_sdk_version
+    compileSdkVersion rootProject.compile_sdk_version
     namespace 'dev.guillem.githubbrowserlab'
     defaultConfig {
         applicationId "dev.guillem.githubbrowserlab"
@@ -39,6 +39,10 @@ android {
     lint {
         disable 'JvmStaticProvidesInObjectDetector', 'FieldSiteTargetOnQualifierAnnotation', 'ModuleCompanionObjects', 'ModuleCompanionObjectsNotInModuleParent'
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
