@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.compile_sdk_version
+    compileSdkVersion rootProject.compile_sdk_version
     namespace 'dev.guillem.githubbrowserlab'
     defaultConfig {
         applicationId "dev.guillem.githubbrowserlab"
@@ -24,6 +24,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlinOptions {
+        jvmTarget = '17' // Or your desired Java version, as a string
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -39,6 +43,10 @@ android {
     lint {
         disable 'JvmStaticProvidesInObjectDetector', 'FieldSiteTargetOnQualifierAnnotation', 'ModuleCompanionObjects', 'ModuleCompanionObjectsNotInModuleParent'
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
