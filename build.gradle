@@ -23,15 +23,15 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
 }
 
 ext {
     // Sdk and tools
-    min_sdk_version = 21
-    target_sdk_version = 34
-    compile_sdk_version = 35
+    min_sdk_version = 26
+    target_sdk_version = 36
+    compile_sdk_version = 36
 
     androidx_core_version = "1.17.0"
     androidx_fragment_version = "1.8.9"
