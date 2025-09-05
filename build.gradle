@@ -43,7 +43,7 @@ ext {
     androidx_browser_version = "1.9.0"
     google_material_version = "1.13.0"
     recyclerview_version = "1.4.0"
-    glide_version = "4.16.0"
+    glide_version = "5.0.4"
     rxandroid_version = "2.1.1"
     rxjava_version = "2.2.21"
     retrofit_version = "3.0.0"
