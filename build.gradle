@@ -53,5 +53,5 @@ ext {
     androidx_expresso_version = "3.7.0"
     androidx_core_testing_version = "2.2.0"
     kotlin_junit = "2.3.0"
-    mockito_kotlin = "6.2.0"
+    mockito_kotlin = "6.2.1"
 }
