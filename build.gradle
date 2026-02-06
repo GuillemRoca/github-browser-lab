@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "2.3.10"
-    ext.hilt_version = '2.58'
+    ext.hilt_version = '2.59.1'
     repositories {
         google()
         mavenCentral()
@@ -53,5 +53,5 @@ ext {
     androidx_expresso_version = "3.7.0"
     androidx_core_testing_version = "2.2.0"
     kotlin_junit = "2.3.10"
-    mockito_kotlin = "6.2.1"
+    mockito_kotlin = "6.2.3"
 }
