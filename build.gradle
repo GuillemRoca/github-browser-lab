@@ -33,15 +33,15 @@ ext {
     target_sdk_version = 36
     compile_sdk_version = 36
 
-    androidx_core_version = "1.17.0"
-    androidx_fragment_version = "1.8.9"
-    androidx_appcompat_version = "1.7.1"
-    androidx_constrait_layout_version = "2.2.1"
+    androidx_core_version = "1.19.1"
+    androidx_fragment_version = "1.9.1"
+    androidx_appcompat_version = "1.8.0"
+    androidx_constrait_layout_version = "2.2.2"
     androidx_swipe_refresh_layout_version = "1.2.0"
     androidx_livedata_version = "2.10.0"
     androidx_viewmodel_version = "2.10.0"
-    androidx_browser_version = "1.9.0"
-    google_material_version = "1.13.0"
+    androidx_browser_version = "1.10.0"
+    google_material_version = "1.14.0"
     recyclerview_version = "1.4.0"
     glide_version = "5.0.5"
     rxandroid_version = "2.1.1"
